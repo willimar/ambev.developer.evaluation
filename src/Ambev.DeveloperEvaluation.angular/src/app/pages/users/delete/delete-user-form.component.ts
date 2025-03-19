@@ -6,13 +6,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Enviroment } from "../../../abstracts/enviroment";
 
 @Component({
-  templateUrl: 'login-form.component.html',
-  styleUrls: ['login-form.component.css'],
+  templateUrl: 'delete-user-form.component.html',
+  styleUrls: ['delete-user-form.component.css'],
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule,  FormsModule, ],
   providers: []
 })
-export class DeleteUserComponent implements OnInit {
+export class DeleteUserFormComponent implements OnInit {
     form: FormGroup;
 
     constructor(private fb: FormBuilder, private http: HttpClient, private _router: Router) {
@@ -37,7 +37,7 @@ export class DeleteUserComponent implements OnInit {
             this.http.delete(apiUrl, {headers}).subscribe(
                 (response: any) => {
                   console.log('Sucesso:', response);
-                  alert('Dados enviados com sucesso!');
+                  alert('Usuário excluído com sucesso!');
                 },
                 (error) => {
                   console.error('Erro:', error); // Trata erros

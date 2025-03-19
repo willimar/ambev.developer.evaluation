@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authoCheckGuard } from './autho-check.guard';
 import { AboutComponent } from './pages/about/about.component';
-import { UserFormComponent } from './pages/users/insert/user-form.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginFormComponent } from './pages/login/login-form.component';
+import { DeleteUserFormComponent, SearchUserFormComponent, UserFormComponent } from './pages/users';
+
 
 export const routes: Routes = [
     {
@@ -13,6 +14,8 @@ export const routes: Routes = [
         canActivate: [authoCheckGuard],
         children: [
             { path: 'add-user', component: UserFormComponent },
+            { path: 'delete-user', component: DeleteUserFormComponent },
+            { path: 'get-user', component: SearchUserFormComponent },
         ],
     },
     {

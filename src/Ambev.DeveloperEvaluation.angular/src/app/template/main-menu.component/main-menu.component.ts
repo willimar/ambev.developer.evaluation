@@ -93,7 +93,7 @@ export class MainMenuComponent implements OnInit {
         {
           classImage: 'fa-solid fa-file-circle-minus',
           caption: 'Excluir usuários...',
-          router: 'get-user',
+          router: 'delete-user',
           showSubItems: false,
           children: []
         }
