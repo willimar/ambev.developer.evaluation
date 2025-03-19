@@ -1,0 +1,65 @@
+<div class="container">
+    <h2>Buscar Produto</h2>
+    <h6 class="mb-4">Levando em conta que o projeto tem por finalidade somente testar as funcionalidades da API e também avaliar, meus conhecimentos em Angular achei que não seria necessário criar um endpoint para consultas e um datatable para apresentar os dados.</h6>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Campo Id -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="username">Código GUID do produto:</label>
+            <div class="col-md-3">
+                <input id="id" class="form-control form-control-sm" type="text" formControlName="id" placeholder="Código deve ser pego no banco" required />
+                @if (form.get('id')?.invalid && form.get('id')?.touched) {
+                    <small class="text-danger fs-12">Para fins de teste colete o código na base de dados.</small>
+                }
+            </div>
+        </div>
+
+        <!-- Campo Title -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="title">Título:</label>
+            <div class="col-md-4">
+                <input id="title" class="form-control form-control-sm" type="text" formControlName="title" placeholder="Digite um título para o produto" readonly />
+            </div>
+        </div>
+
+        <!-- Campo Price -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="price">Preço:</label>
+            <div class="col-md-4">
+                <input id="price" class="form-control form-control-sm" type="number" formControlName="price" placeholder="Digite um preço para o produto" readonly />
+            </div>
+        </div>
+
+        <!-- Campo Description -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="description">Descrição:</label>
+            <div class="col-md-4">
+                <input id="description" class="form-control form-control-sm" type="text" formControlName="description" placeholder="Digite uma descrição para o produto" readonly />
+            </div>
+        </div>
+
+        <!-- Campo Category -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="category">Categoria:</label>
+            <div class="col-md-4">
+                <input id="category" class="form-control form-control-sm" type="text" formControlName="category" placeholder="Digite uma categoria para o produto" readonly />
+            </div>
+        </div>
+
+        <!-- Campo Image -->
+        <div class="form-group row mb-2">
+            <label class="col-md-2 form-label" for="category">Imagem:</label>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+
+        <hr class="border border-1 opacity-35">
+
+        <!-- Botão de Envio -->
+        <div class="row text-right">
+            <div class="button-container col-md-1 offset-md-4">
+                <button type="submit" class="btn {{ form.invalid ? 'btn-secondary' : 'btn-primary' }} mb-3" [disabled]="form.invalid">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
