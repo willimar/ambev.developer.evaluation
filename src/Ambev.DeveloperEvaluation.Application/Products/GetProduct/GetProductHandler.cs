@@ -8,7 +8,9 @@ namespace Ambev.DeveloperEvaluation.Application.Products.GetProduct;
 /// <summary>
 /// Handler for processing GetProductCommand requests
 /// </summary>
-public class GetProductHandler : IRequestHandler<GetProductCommand, GetProductResult>
+public class GetProductHandler : 
+    IRequestHandler<GetProductCommand, GetProductResult>, 
+    IRequestHandler<GetProductsCommand, IEnumerable<GetProductResult>>
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
@@ -46,5 +48,18 @@ public class GetProductHandler : IRequestHandler<GetProductCommand, GetProductRe
             throw new KeyNotFoundException($"Product with ID {request.Id} not found");
 
         return _mapper.Map<GetProductResult>(product);
+    }
+
+    /// <summary>
+    /// Handles the GetProductCommand request
+    /// </summary>
+    /// <param name="request">The GetProduct command</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The product details if found</returns>
+    public async Task<IEnumerable<GetProductResult>> Handle(GetProductsCommand request, CancellationToken cancellationToken)
+    {
+        var products = await _productRepository.GetAsync(cancellationToken);
+        
+        return _mapper.Map<IEnumerable<GetProductResult>>(products);
     }
 }

@@ -31,4 +31,9 @@ public class GetProductResult
     /// The product's Price
     /// </summary>
     public double Price { get; set; }
+
+    /// <summary>
+    /// Gets or sets the Description of the Product to be created.
+    /// </summary>
+    public string Description { get; set; } = string.Empty;
 }

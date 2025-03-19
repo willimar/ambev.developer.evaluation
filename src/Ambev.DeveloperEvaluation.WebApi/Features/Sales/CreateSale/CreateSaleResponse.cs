@@ -10,6 +10,11 @@ public class CreateSaleResponse
     public Guid Id { get; set; }
 
     /// <summary>
+    /// Gets or sets the Sale Number.
+    /// </summary>
+    public string Number { get; set; } = string.Empty;
+
+    /// <summary>
     /// Gets or sets the Customer Name.
     /// </summary>
     public string CustomerName { get; set; } = string.Empty;

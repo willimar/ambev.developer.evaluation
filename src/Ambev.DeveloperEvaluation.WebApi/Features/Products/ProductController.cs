@@ -91,6 +91,27 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
         }
 
         /// <summary>
+        /// Retrieves a Product by their ID
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>The Product details if found</returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(ApiResponseWithData<IEnumerable<GetProductResponse>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetProductsCommand(), cancellationToken);
+
+            return Ok(new ApiResponseWithData<IEnumerable<GetProductResponse>>
+            {
+                Success = true,
+                Message = "Product retrieved successfully",
+                Data = _mapper.Map<IEnumerable<GetProductResponse>>(response)
+            });
+        }
+
+        /// <summary>
         /// Deletes a Product by their ID
         /// </summary>
         /// <param name="id">The unique identifier of the Product to delete</param>

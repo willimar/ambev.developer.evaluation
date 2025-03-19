@@ -8,22 +8,48 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.SaleProducts.CreateSaleProdu
 public class CreateSaleProductResponse
 {
     /// <summary>
-    /// Gets or sets the Customer Name.
+    /// Gets or sets the unique identifier of the newly created SaleProduct.
     /// </summary>
-    public string CustomerName { get; set; } = string.Empty;
+    /// <value>A GUID that uniquely identifies the created SaleProduct in the system.</value>
+    public Guid Id { get; set; }
 
     /// <summary>
-    /// Gets or sets the Customer CPF/CNPJ.
+    /// The Id of the Sale
     /// </summary>
-    public string CpfCnpjCustomer { get; set; } = string.Empty;
+    public Guid SaleId { get; set; }
 
     /// <summary>
-    /// Gets or sets the Company Name.
+    /// The Id of the Product
     /// </summary>
-    public string CompanyName { get; set; } = string.Empty;
+    public Guid ProductId { get; set; }
 
     /// <summary>
-    /// Gets or sets the User Name.
+    /// The Name of the Product
     /// </summary>
-    public string UserName { get; set; } = string.Empty;
+    public string ProductName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The Value of the Product in the sale day
+    /// </summary>
+    public decimal UnitValue { get; set; }
+
+    /// <summary>
+    /// The discount of the product in the sale day
+    /// </summary>
+    public decimal Discount { get; set; }
+
+    /// <summary>
+    /// The total value of the product in the sale day
+    /// </summary>
+    public decimal TotalUnityValue { get; set; }
+
+    /// <summary>
+    /// If the product was canceled in the sale
+    /// </summary>
+    public bool Canceled { get; set; }
+
+    /// <summary>
+    /// The quantity of the product in the sale
+    /// </summary>
+    public int Count { get; set; }
 }

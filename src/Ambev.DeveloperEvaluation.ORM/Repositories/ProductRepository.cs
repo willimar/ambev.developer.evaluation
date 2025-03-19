@@ -45,6 +45,16 @@ public class ProductRepository : IProductRepository
     }
 
     /// <summary>
+    /// Retrieves all Products
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The Products if found</returns>
+    public async Task<IEnumerable<Product>?> GetAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Products.ToListAsync();
+    }
+
+    /// <summary>
     /// Deletes a Product from the database
     /// </summary>
     /// <param name="id">The unique identifier of the Product to delete</param>

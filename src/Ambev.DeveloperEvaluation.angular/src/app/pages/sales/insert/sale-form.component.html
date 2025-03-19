@@ -46,18 +46,77 @@
                         }
                     </div>
                 </div>
+
+                
+                <hr class="border border-1 opacity-35">
+
+                <!-- Botão de Envio -->
+                <div class="row text-right">
+                    <div class="button-container col-md-1 offset-md-10">
+                        <button type="submit" class="btn {{ form.invalid ? 'btn-secondary' : 'btn-primary' }} mb-3" [disabled]="form.invalid">Salvar</button>
+                    </div>
+                </div>
             </div>
             <div class="col-md-5">
-                
-            </div>
-        </div>
+                @if (saleNumber || true) {
+                    <form [formGroup]="saleForm" (ngSubmit)="saveProductSale()">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-4 form-label" for="saleNumber">Número da venda</label>
+                            <div class="col-md-8">
+                                <input id="saleNumber" class="form-control form-control-sm" type="text" [value]="saleNumber" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2">
+                            <label class="col-md-2 form-label" for="productId">Produto</label>
+                            <div class="col-md-5">
+                                <select class="form-select form-select-sm" id="productId" formControlName="productId" >
+                                    @for (item of products; track $index) {
+                                        <option value="{{item.id}}">{{item.title}}</option>
+                                    }
+                                </select>
+                            </div>
 
-        <hr class="border border-1 opacity-35">
+                            <label class="col-md-2 form-label" for="userName">Quantidade</label>
+                            <div class="col-md-3">
+                                <input id="count" class="form-control form-control-sm" type="numver" formControlName="count" placeholder="Quantidade" required />
+                            </div>
+                        </div>
 
-        <!-- Botão de Envio -->
-        <div class="row text-right">
-            <div class="button-container col-md-1 offset-md-4">
-                <button type="submit" class="btn {{ form.invalid ? 'btn-secondary' : 'btn-primary' }} mb-3" [disabled]="form.invalid">Salvar</button>
+                        <hr class="border border-1 opacity-35">
+
+                        <div class="row text-right">
+                            <div class="button-container col-md-1 offset-md-10">
+                                <button type="submit" class="btn {{ saleForm.invalid ? 'btn-secondary' : 'btn-primary' }} mb-3" [disabled]="form.invalid">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group row nb-2">
+                        <div class="col-md-12">
+                            <table class="table-secondary" width="100%">
+                                <tr class="table-secondary">
+                                    <td width="40%"> Produto </td> 
+                                    <td width="12%"> Preço </td> 
+                                    <td width="12%"> Desc. </td>
+                                    <td width="12%"> Qtd </td>
+                                    <td width="12%"> Total Und. </td>
+                                    <td width="12%"> Cancelado? </td>
+                                </tr>
+                                <tbody>
+                                    @for (item of selectedProducts; track $index) {
+                                        <tr class="{{$index % 2 === 0 ? 'table-warning' : 'table-info'}}">
+                                            <td width="40%"> {{item.productName}} </td> 
+                                            <td width="12%"> {{item.unitValue}} </td> 
+                                            <td width="12%"> {{item.discount}} </td>
+                                            <td width="12%"> {{item.count}} </td>
+                                            <td width="12%"> {{item.totalUnityValue}} </td>
+                                            <td width="12%"> <input class="form-check-input" type="checkbox" value="{{item.canceled}}" disabled></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </form>
