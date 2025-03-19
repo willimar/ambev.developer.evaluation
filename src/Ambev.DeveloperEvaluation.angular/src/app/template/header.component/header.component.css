@@ -1,0 +1,36 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.nav-bar-title {
+  width: 100%;
+}
+
+.it-background {
+  background: linear-gradient(to bottom, #495a6a, #1e2432);
+}
+
+.it-btn-menu {
+  background-color: #3e6a8d;
+}
+
+.header {
+  height: 110px;
+}
+
+.logo-1 {
+    background-image: url('../../../assets/WILITECH01_CIRCLE.png');
+    height: 102px;
+    width: 102px;
+    padding: 5px;
+    margin-left: 1.85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    margin-top: 2%;
+    padding-left: 0vh;
+  }
+
+  .logo-title-1 {
+    padding-left: 0vh;
+  }

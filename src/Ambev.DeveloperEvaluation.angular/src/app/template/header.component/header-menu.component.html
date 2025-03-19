@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <a href="#" mat-list-item (click)="openLink($event, 'login')" *ngIf="!isAuthenticated()">
+        <span matListItemTitle><i class="fa-solid fa-door-closed"></i> Login</span>
+        <span matLine class="span-mat-line">Obter acesso ao sistema...</span>
+    </a>
+    <a href="#" mat-list-item (click)="openLink($event, 'logout')" *ngIf="isAuthenticated()">
+        <span matListItemTitle><i class="fa-solid fa-door-open"></i> Logoff</span>
+        <span matLine class="span-mat-line">Sair do sistema...</span>
+    </a>
+    <a href="#" mat-list-item (click)="openLink($event, 'add-account')" *ngIf="!isAuthenticated()">
+        <span matListItemTitle><i class="fa-solid fa-user-plus"></i> Registrar</span>
+        <span matLine class="span-mat-line">Cria um novo usuário para o sistema...</span>
+    </a>
+    <a mat-list-item (click)="openLink($event, 'about')">
+        <span matListItemTitle><i class="fa-solid fa-address-card"></i> Sobre</span> 
+        <span matLine class="span-mat-line">Perfil do candidato no processo avaliativo...</span>
+    </a>
+</mat-nav-list>

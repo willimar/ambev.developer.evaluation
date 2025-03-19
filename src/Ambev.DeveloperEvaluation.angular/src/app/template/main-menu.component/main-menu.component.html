@@ -1,0 +1,60 @@
+<nav id="navbar-showcase" class="enviroment-menu d-none d-md-block">
+    <hr class="p-0 mt-0">
+    <div class="d-flex flex-row-reverse">
+      <div class="col-md-12 text-center text-uppercase">
+        MENU PRINCIPAL
+      </div>
+    </div>
+    <hr class="p-0 mt-3">
+    @for (levelOne of getMenu(); track $index) {
+      <div class="">
+        <button class="nav-link nav-link-1 hand-cursor" width="100%" (click)="toggleSubItems(levelOne)">
+          <div class="d-flex flex-row">
+            <div class="p-1"><i class="fa-regular {{levelOne.showSubItems ? 'fa-square-minus' : 'fa-square-plus'}}"></i></div>
+            <div class="p-1"><i class="{{levelOne.classImage}}"></i></div>
+            <div class="p-1">{{levelOne.caption}}</div>
+          </div>
+        </button>
+        @if (levelOne.showSubItems) {
+          <div class="">
+            @for (levelTwo of levelOne.children; track $index) {
+              <div class="">
+                <button class="nav-link nav-link-2 hand-cursor" (click)="toggleSubItems(levelTwo)" *ngIf="levelTwo.children.length > 0">
+                    <div class="d-flex flex-row">
+                      <div class="p-1"><i class="fa-regular {{levelTwo.showSubItems ? 'fa-square-minus' : 'fa-square-plus'}}"></i></div>
+                      <div class="p-1"><i class="{{levelTwo.classImage}}"></i></div>
+                      <div class="p-1">{{ levelTwo.caption }}</div>
+                    </div>
+                </button>
+                @if (levelTwo.children.length == 0) {
+                  <a routerLinkActive="active" [routerLink]='[levelTwo.router]' class="nav-link nav-link-3 hand-cursor">
+                    <div class="d-flex flex-row">
+                      <div class="p-1"><i class="{{levelTwo.classImage}}"></i></div>
+                      <div class="p-1">{{ levelTwo.caption }}</div>
+                    </div>
+                  </a>
+                }
+                @if (levelTwo.showSubItems && levelTwo.children.length > 0) {
+  
+                }
+                <div class="">
+                  @for (levelThree of levelTwo.children; track $index) {
+                    <div class="">
+                      <a routerLinkActive="active" [routerLink]='[levelThree.router]' class="nav-link nav-link-3 hand-cursor">
+                          <div class="d-flex flex-row">
+                            <div class="p-1"><i class="{{levelThree.classImage}}"></i></div>
+                            <div class="p-1">{{ levelThree.caption }}</div>
+                          </div>
+                      </a>
+                    </div>
+                  }
+                </div>
+              </div>  
+            }
+          </div>
+        }
+      </div>
+    }
+    
+  </nav>
+  

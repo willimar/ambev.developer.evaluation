@@ -1,0 +1,23 @@
+<app-header></app-header>
+<main [ngStyle]="{'height': getSize()}">
+    <mat-drawer-container [hasBackdrop]="true" [ngStyle]="{'height': getSize()}">
+        <mat-drawer #drawer [mode]="'push'" style="width: 20%;" class="main-menu-base">
+            <app-main-menu (visibilityChange)="onVisibilityChange()"></app-main-menu>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div class="d-flex flex-row-reverse btn-menu">
+                <div style="width: 100%;">
+                  <router-outlet></router-outlet>
+                </div>
+                @if (isAuthenticated()) {
+                    <div class="main-menu-base" style="width: 50px;" [ngStyle]="{'height': getSize(), 'display': drawer.opened}">
+                        <button mat-mini-fab aria-label="" class="it-btn-menu" (click)="open(drawer)">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div>
+                }
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</main>
+<app-footer></app-footer> 

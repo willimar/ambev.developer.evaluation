@@ -1,0 +1,14 @@
+.enviroment-footer {
+    background-color: #1e2432;
+    color: #7dbed2;
+    padding: 2px;
+    text-align: center;
+    border-bottom: var(--body-margin-botton-color);
+    border-right: var(--body-margin-right-color);
+    border-left: var(--body-margin-left-color);
+    border-top: 0px;
+  }
+
+  .text-footer {
+    font-size: 11px;
+  }
