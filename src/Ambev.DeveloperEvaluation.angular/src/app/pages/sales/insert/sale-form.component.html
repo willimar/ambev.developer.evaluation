@@ -1,0 +1,64 @@
+<div class="container">
+    <h2>Inserir Venda</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Campo Cliente -->
+                <div class="form-group row mb-2">
+                    <label class="col-md-4 form-label" for="customerName">Nome do cliente:</label>
+                    <div class="col-md-8">
+                        <input id="customerName" class="form-control form-control-sm" type="text" formControlName="customerName" placeholder="Digite seu nome do cliente" required />
+                        @if (form.get('customerName')?.invalid && form.get('customerName')?.touched) {
+                            <small class="text-danger fs-12">Cliente é obrigatório.</small>
+                        }
+                    </div>
+                </div>
+
+                <!-- Campo CPF/CNPJ -->
+                <div class="form-group row mb-2">
+                    <label class="col-md-4 form-label" for="cpfCnpjCustomer">CPF/CNPJ</label>
+                    <div class="col-md-8">
+                        <input id="cpfCnpjCustomer" class="form-control form-control-sm" type="text" formControlName="cpfCnpjCustomer" placeholder="Digite o valor do documento" required />
+                        @if (form.get('cpfCnpjCustomer')?.invalid && form.get('cpfCnpjCustomer')?.touched) {
+                            <small class="text-danger fs-12"> CPF/CNPJ é obrigatório. </small>
+                        }
+                    </div>
+                </div>
+
+                <!-- Campo CompanyName -->
+                <div class="form-group row mb-2">
+                    <label class="col-md-4 form-label" for="companyName">Loja de origem</label>
+                    <div class="col-md-8">
+                        <input id="companyName" class="form-control form-control-sm" type="text" formControlName="companyName" placeholder="Informe a loja de origem" required />
+                        @if (form.get('companyName')?.invalid && form.get('companyName')?.touched) {
+                            <small class="text-danger fs-12"> Loja de origem é obrigatório. </small>
+                        }
+                    </div>
+                </div>
+
+                <!-- Campo Username -->
+                <div class="form-group row mb-2">
+                    <label class="col-md-4 form-label" for="userName">Usuário da venda</label>
+                    <div class="col-md-8">
+                        <input id="userName" class="form-control form-control-sm" type="text" formControlName="userName" placeholder="Digite o usuário da venda" required />
+                        @if (form.get('userName')?.invalid && form.get('userName')?.touched) {
+                            <small class="text-danger fs-12"> Usuário da venda é obrigatório. </small>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                
+            </div>
+        </div>
+
+        <hr class="border border-1 opacity-35">
+
+        <!-- Botão de Envio -->
+        <div class="row text-right">
+            <div class="button-container col-md-1 offset-md-4">
+                <button type="submit" class="btn {{ form.invalid ? 'btn-secondary' : 'btn-primary' }} mb-3" [disabled]="form.invalid">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
