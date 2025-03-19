@@ -5,6 +5,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginFormComponent } from './pages/login/login-form.component';
 import { DeleteUserFormComponent, SearchUserFormComponent, UserFormComponent } from './pages/users';
+import { DeleteProductFormComponent, ProductFormComponent, SearchProductFormComponent } from './pages/products';
+import { DeleteSaleFormComponent, SaleFormComponent, SearchSaleFormComponent } from './pages/sales';
 
 
 export const routes: Routes = [
@@ -16,6 +18,12 @@ export const routes: Routes = [
             { path: 'add-user', component: UserFormComponent },
             { path: 'delete-user', component: DeleteUserFormComponent },
             { path: 'get-user', component: SearchUserFormComponent },
+            { path: 'add-product', component: ProductFormComponent },
+            { path: 'delete-product', component: DeleteProductFormComponent },
+            { path: 'get-product', component: SearchProductFormComponent },
+            { path: 'add-sale', component: SaleFormComponent },
+            { path: 'delete-sale', component: DeleteSaleFormComponent },
+            { path: 'get-sale', component: SearchSaleFormComponent },
         ],
     },
     {
