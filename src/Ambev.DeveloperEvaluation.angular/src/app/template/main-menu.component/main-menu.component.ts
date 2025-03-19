@@ -50,21 +50,21 @@ export class MainMenuComponent implements OnInit {
         {
           classImage: 'fa-solid fa-file-circle-plus',
           caption: 'Vender...',
-          router: 'add-product',
+          router: 'add-sale',
           showSubItems: false,
           children: []
         },
         {
           classImage: 'fa-solid fa-filter',
           caption: 'Consultar vendas...',
-          router: 'get-product',
+          router: 'get-sale',
           showSubItems: false,
           children: []
         },
         {
           classImage: 'fa-solid fa-file-circle-minus',
           caption: 'Excluir venda...',
-          router: 'delete-product',
+          router: 'delete-sale',
           showSubItems: false,
           children: []
         }
